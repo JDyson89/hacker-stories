@@ -115,30 +115,31 @@ const App = () => {
     event.preventDefault();
   };
 
+  const SearchForm = ({
+    searchTerm,
+    onSearchInput,
+    onSearchSubmit,
+  }) => (
+    <form onSubmit={onSearchSubmit}>
+      <InputWithLabel 
+        id='search'
+        value={searchTerm}
+        isFocused
+        onInputChange={onSearchInput}
+      >
+        <strong>Search:</strong>
+      </InputWithLabel>
+
+      <button type='submit' disabled={!searchTerm}>
+        Submit
+      </button>
+    </form>
+  );
+
     return (
       <div>
         <h1>My Hacker Stories</h1>
  
-      {/* const SearchForm = ({
-        searchTerm,
-        onSearchInput,
-        onSearchSubmit,
-      }) => (
-        <form onSubmit={onSearchSubmit}>
-          <InputWithLabel 
-            id='search'
-            value={searchTerm}
-            isFocused
-            onInputChange={onSearchInput}
-          >
-            <strong>Search:</strong>
-          </InputWithLabel>
-
-          <button type='submit' disabled={!searchTerm}>
-            Submit
-          </button>
-        </form>
-    ); */}
         <SearchForm 
           searchTerm={searchTerm}
           onSearchInput={handleSearchInput}
